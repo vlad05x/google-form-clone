@@ -1,0 +1,31 @@
+query GetForms {
+  forms {
+    id
+    title
+    description
+  }
+}
+
+query GetFormById($id: ID!) {
+  form(id: $id) {
+    id
+    title
+    description
+    questions {
+      id
+      type
+      text
+      options
+    }
+  }
+}
+
+query GetResponses($formId: ID!) {
+  responses(formId: $formId) {
+    id
+    answers {
+      questionId
+      value
+    }
+  }
+}
