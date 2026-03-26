@@ -1,0 +1,335 @@
+// Design Tokens
+$primary: #673ab7;
+$primary-hover: #5e35b1;
+$bg-page: #f0ebf8;
+$bg-card: #ffffff;
+$border: #dadce0;
+$text-main: #202124;
+$text-secondary: #70757a;
+$shadow: 0 1px 3px rgba(60, 64, 67, 0.1);
+$shadow-hover: 0 4px 6px rgba(60, 64, 67, 0.15);
+
+.pageWrapper {
+  min-height: 100vh;
+  background-color: $bg-page;
+  padding-bottom: 64px;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+}
+
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  padding: 8px 32px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid $border;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 32px;
+  height: 64px;
+}
+
+.saveBtn {
+  background-color: $primary;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+  &:hover:not(:disabled) {
+    background-color: $primary-hover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background-color: #e0e0e0;
+    color: #9e9e9e;
+    cursor: not-allowed;
+  }
+}
+
+.formHeader {
+  background-color: $bg-card;
+  border: 1px solid $border;
+  border-radius: 8px;
+  border-top: 10px solid $primary;
+  padding: 24px 28px 32px;
+  margin: 0 auto 16px;
+  max-width: 770px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: $shadow;
+  transition: box-shadow 0.25s, transform 0.2s;
+
+  &:focus-within {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.titleInput {
+  font-size: 32px;
+  font-weight: 400;
+  color: $text-main;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 8px 0;
+  outline: none;
+  width: 100%;
+  transition: border-bottom-color 0.2s;
+
+  &::placeholder {
+    color: #9e9e9e;
+  }
+
+  &:focus {
+    border-bottom: 2px solid $primary;
+  }
+}
+
+.descInput {
+  font-size: 14px;
+  color: $text-main;
+  border: none;
+  border-bottom: 1px solid transparent;
+  padding: 4px 0;
+  outline: none;
+  width: 100%;
+  transition: border-bottom-color 0.2s;
+
+  &::placeholder {
+    color: $text-secondary;
+  }
+
+  &:focus {
+    border-bottom: 2px solid #202124;
+  }
+}
+
+.questionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 770px;
+  margin: 0 auto;
+}
+
+.questionCard {
+  background-color: $bg-card;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: $shadow;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  &:focus-within {
+    border-left: 6px solid #4285f4;
+    padding-left: 19px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.questionCardHeader {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.questionInput {
+  flex: 1;
+  font-size: 16px;
+  padding: 12px 16px;
+  border: none;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  outline: none;
+  border-bottom: 2px solid transparent;
+  transition: background-color 0.25s, border-bottom-color 0.2s;
+
+  &:focus {
+    background-color: #f1f3f4;
+    border-bottom-color: $primary;
+  }
+}
+
+.typeSelect {
+  padding: 12px 16px;
+  border: 1px solid $border;
+  border-radius: 4px;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  color: $text-main;
+  outline: none;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #f8f9fa;
+    border-color: #9e9e9e;
+  }
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 1px $primary;
+  }
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 4px;
+}
+
+.optionItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 0;
+  transition: transform 0.2s;
+
+  &:hover .removeOptionBtn {
+    opacity: 0.6;
+  }
+}
+
+.optionMarker {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: $primary;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.15);
+  }
+}
+
+.optionInput {
+  flex: 1;
+  font-size: 14px;
+  border: none;
+  border-bottom: 1px solid transparent;
+  padding: 8px 0;
+  outline: none;
+  transition: border-bottom-color 0.2s;
+
+  &:hover {
+    border-bottom: 1px solid $border;
+  }
+
+  &:focus {
+    border-bottom: 2px solid $primary;
+    margin-bottom: -1px;
+  }
+}
+
+.removeOptionBtn {
+  background: none;
+  border: none;
+  color: $text-secondary;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  opacity: 0; // Hidden by default, show on hover of parent
+
+  &:hover {
+    color: #d93025;
+    background-color: #feebe9;
+    opacity: 1 !important;
+  }
+}
+
+.addOptionBtn {
+  background: none;
+  border: none;
+  color: $text-secondary;
+  font-size: 14px;
+  padding: 12px 0;
+  cursor: pointer;
+  text-align: left;
+  width: fit-content;
+  transition: all 0.2s;
+  margin-left: 32px;
+  position: relative;
+
+  &:hover {
+    color: $primary;
+    text-decoration: underline;
+  }
+}
+
+.placeholderText, .datePlaceholder {
+  color: $text-secondary;
+  font-size: 14px;
+  padding: 16px;
+  background-color: #f8f9fa;
+  border: none;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  border-bottom: 2px dotted $border;
+  width: 50%;
+  margin-top: 12px;
+  outline: none;
+  font-family: inherit;
+}
+
+.datePlaceholder {
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #f1f3f4;
+    border-color: $primary;
+  }
+}
+
+.addBtn {
+  background-color: #ffffff;
+  color: $primary;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px auto;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: #fcfaff;
+    border-color: $primary;
+    box-shadow: 0 4px 12px rgba(103, 58, 183, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
